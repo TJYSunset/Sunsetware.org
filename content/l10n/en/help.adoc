@@ -1,0 +1,63 @@
+[#help]
+= Help
+
+[#help-general]
+== General
+
+[#help-formats]
+=== What formats does Phocid support?
+
+https://developer.android.com/media/platform/supported-formats#audio-formats
+
+[#help-large-queue]
+=== Hangs and crashes when having a large play queue
+
+https://github.com/androidx/media/issues/81[This is an upstream Google issue.] Please try queueing less tracks for the time being.
+
+[#help-crash-report]
+=== Where's the crash report stored?
+
+`Android/data/org.sunsetware.phocid/files/crash.txt` in your external storage. Depending on your system, you might need to connect your phone to a computer to see this file.
+
+[#help-file]
+== File
+
+[#help-file-source]
+=== Where can Phocid find files from?
+
+Non-technical answer: I don't know. If your location isn't working, try putting files in your device's default `Music` folder, and remove special characters (like leading dots) in their paths.
+
+Technical answer: Phocid reads files listed in your https://developer.android.com/training/data-storage/shared/media[MediaStore]. Its exact behavior is not documented, its implementation may vary across devices and contains some https://issuetracker.google.com/issues/140987268[known surprises].
+
+[#help-missing-new-files]
+=== New files aren't showing up
+
+It's because the app responsible for adding your files didn't notify MediaStore (which it should, so you probably want to file an issue with its devs). You can try a manual rescan in Phocid, enable "`Always rescan MediaStore`" in preferences, or use some other methods to force MediaStore to rescan. See <<help-file-source>>
+
+[#help-why-not-saf]
+=== Why doesn't Phocid let me pick a folder like other apps do?
+
+Because that method is https://www.google.com/search?q=android+saf+slow[slow] and doesn't provide access to full file paths (which is important to the playlist feature).
+
+[#help-metadata]
+== Metadata
+
+[#help-advanced-metadata-extraction]
+=== What exactly does "`Advanced metadata extraction`" do?
+
+Without "`Advanced metadata extraction`" enabled, music metadata are taken directly from Android's pre-scanned database called https://developer.android.com/training/data-storage/shared/media[MediaStore]. Unfortunately MediaStore only reads a limited amount of metadata and is https://issuetracker.google.com/issues/385155398[notoriously bad at doing its job right] -- that's why Phocid offers an option to extract metadata by itself at the cost of extra scanning time (using https://bitbucket.org/ijabz/jaudiotagger[jaudiotagger] and https://github.com/TJYSunset/OpusMetadataIo[others]). This may be unacceptably slow for SD card users with a large library, thus it's disabled by default.
+
+[#help-mojibake]
+=== Music info contains garbled text (https://en.wikipedia.org/wiki/Mojibake[mojibake])
+
+Enable <<help-advanced-metadata-extraction,"`Advanced metadata extraction`">> in preferences.
+
+[#help-lyrics]
+== Lyrics
+
+[#help-lyrics-source]
+=== Where does Phocid read lyrics from?
+
+Phocid reads external LRC lyrics that have the same filename (excluding extension) in the same folder. Access to LRC files with https://source.android.com/docs/core/storage/scoped[scoped storage] is undocumented behavior and might not work on some devices or future Android versions. Please inform me if that happens.
+
+Embedded lyrics are read from `LYRICS`, `UNSYNCEDLYRICS` or other fields specified by https://www.jthink.net/jaudiotagger/tagmapping.html[this table]. They are only read when tracks are scanned with <<help-advanced-metadata-extraction,"`Advanced metadata extraction`">> enabled.

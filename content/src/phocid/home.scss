@@ -1,0 +1,97 @@
+@use "/src/theme";
+@use "/src/base";
+
+#main {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: calc(
+            100vh - var(--navigation-height) - var(--main-padding-y) * 2
+        );
+        gap: 64px;
+
+        @media (max-width: theme.$mobile-threshold) {
+            flex-direction: column;
+            height: auto;
+            gap: 32px;
+        }
+
+        .description {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+
+            @media (max-width: theme.$mobile-threshold) {
+                padding: 16px 0;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 16px;
+
+                @media (max-width: theme.$mobile-threshold) {
+                    flex-direction: column;
+                }
+
+                a {
+                    display: inline-flex;
+                    position: relative;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                    border-radius: 20px;
+                    padding: 0 24px;
+                    text-wrap: nowrap;
+                    text-decoration: none;
+                    background: var(--color-primary);
+                    color: var(--color-on-primary);
+
+                    &:hover:after,
+                    &:active:after {
+                        @include theme.hover-overlay(var(--color-on-primary));
+                        border-radius: 20px;
+                    }
+
+                    &.tonal {
+                        background: var(--color-secondary-container);
+                        color: var(--color-on-secondary-container);
+
+                        &:hover:after,
+                        &:active:after {
+                            @include theme.hover-overlay(
+                                var(--color-on-secondary-container)
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        .screenshots {
+            display: block;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    display: block;
+                    width: auto;
+                    height: calc(100vh - var(--navigation-height) - 32px * 2);
+                    border-radius: 12px;
+
+                    @media (max-width: theme.$mobile-threshold) {
+                        width: calc(100vw - 32px * 2);
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}

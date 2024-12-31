@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{__locale__}}">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{phocid.home.title}}</title>
+        <meta name="description" content="{{phocid.home.headline}}" />
+        {{>[/src/_head.html]}} {{>[/src/phocid/_favicon.html]}}
+        <link rel="stylesheet" href="/src/phocid/home.scss" />
+    </head>
+    <body>
+        {{>[/src/phocid/_navigation.html]}}
+        <main id="main">
+            <div class="container">
+                <div class="description">
+                    <h1>{{phocid.home.headline}}</h1>
+                    <div class="buttons">
+                        <a
+                            href="https://github.com/tjysunset/phocid/releases/latest"
+                            >{{phocid.home.downloadGithub}}</a
+                        >
+                        <a
+                            class="tonal"
+                            href="https://f-droid.org/en/packages/org.sunsetware.phocid/"
+                            >{{phocid.home.downloadFdroid}}</a
+                        >
+                    </div>
+                </div>
+                <div class="screenshots">
+                    <a href="/src/images/00-screenshot-home-tracks.png">
+                        <img
+                            src="/src/images/00-screenshot-home-tracks.png"
+                            alt=""
+                    /></a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

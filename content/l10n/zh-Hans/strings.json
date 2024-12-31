@@ -1,0 +1,18 @@
+{
+    "locale": "简体中文",
+    "navigation": {
+        "home": "首页",
+        "help": "帮助",
+        "source": "源码",
+        "issues": "报告问题",
+        "localeSelect": "选择语言"
+    },
+    "phocid": {
+        "home": {
+            "title": "Phocid",
+            "headline": "为 Android 11+ 设计的本地音乐播放器。",
+            "downloadFdroid": "通过 F-Droid 下载",
+            "downloadGithub": "下载最新版 APK"
+        }
+    }
+}

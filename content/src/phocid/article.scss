@@ -1,0 +1,76 @@
+@use "sass:math";
+@use "../theme";
+@use "../base";
+
+#main {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    .container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: math.div(theme.$mobile-threshold, 3) 1fr;
+        column-gap: calc(var(--main-padding-y) * 1.5);
+
+        @media (max-width: theme.$mobile-threshold) {
+            display: block;
+        }
+
+        .toc {
+            position: sticky;
+            padding: var(--main-padding-y);
+            top: var(--main-padding-y);
+            max-height: calc(100vh - var(--main-padding-y) * 2);
+            align-self: start;
+            grid-area: 1 / 1;
+            overflow-y: scroll;
+            background: var(--color-surface-container);
+            border-radius: 20px;
+
+            @media (max-width: theme.$mobile-threshold) {
+                position: static;
+                margin-bottom: var(--main-padding-y);
+            }
+
+            ul {
+                margin: 0;
+                padding: 0 0 0 16px;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            & > ul {
+                padding-left: 0;
+
+                & > li {
+                    @include theme.title-medium;
+                }
+            }
+
+            a {
+                display: block;
+                color: var(--color-on-surface-variant);
+                margin-bottom: 12px;
+            }
+        }
+
+        .content {
+            grid-area: 1 / 2;
+
+            h1 {
+                font-weight: bold;
+            }
+
+            h2 {
+                font-weight: bold;
+            }
+
+            h3 {
+                color: var(--color-primary);
+            }
+        }
+    }
+}

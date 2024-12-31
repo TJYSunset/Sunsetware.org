@@ -1,0 +1,1 @@
+This is the source code of https://sunsetware.org. For issues regarding Phocid's website, please discuss them in the https://github.com/tjysunset/phocid/discussions[main repo].

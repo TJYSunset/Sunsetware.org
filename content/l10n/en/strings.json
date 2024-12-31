@@ -1,0 +1,18 @@
+{
+    "locale": "English",
+    "navigation": {
+        "home": "Home",
+        "help": "Help",
+        "source": "Source code",
+        "issues": "Issue tracker",
+        "localeSelect": "Select language"
+    },
+    "phocid": {
+        "home": {
+            "title": "Phocid",
+            "headline": "A modern offline music player with familiar designs for Android 11+.",
+            "downloadFdroid": "Get it on F-Droid",
+            "downloadGithub": "Download latest APK"
+        }
+    }
+}

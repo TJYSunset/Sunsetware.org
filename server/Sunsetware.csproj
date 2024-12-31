@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>13</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../content/dist/**" CopyToOutputDirectory="Always" LinkBase="wwwroot/" />
+    <None Include="../Dockerfile" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+</Project>

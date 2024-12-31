@@ -1,0 +1,57 @@
+<header id="navigation">
+    <span class="logo"><img src="/src/images/icon.png" alt="" />Phocid</span>
+    <nav class="navigation">
+        <ul>
+            <li>
+                {{#when __path__ "eq" "/src/phocid/"}}
+                <a class="active" href="#"><span>{{navigation.home}}</span></a>
+                {{else}}
+                <a class="inactive" href="/phocid/{{__locale__}}"
+                    ><span>{{navigation.home}}</span></a
+                >
+                {{/when}}
+            </li>
+            <li>
+                {{#when __path__ "eq" "/src/phocid/help/"}}
+                <a class="active" href="#"><span>{{navigation.help}}</span></a>
+                {{else}}
+                <a class="inactive" href="/phocid/help/{{__locale__}}"
+                    ><span>{{navigation.help}}</span></a
+                >
+                {{/when}}
+            </li>
+            <li>
+                <a class="inactive" href="https://github.com/tjysunset/phocid"
+                    ><span>{{navigation.source}}</span></a
+                >
+            </li>
+            <li>
+                <a
+                    class="inactive"
+                    href="https://github.com/tjysunset/phocid/issues"
+                    ><span>{{navigation.issues}}</span></a
+                >
+            </li>
+        </ul>
+    </nav>
+    <div class="locales">
+        <a class="open" href="#locale-picker">
+            <span class="icon" aria-label="{{navigation.localeSelect}}"
+                >translate</span
+            >
+        </a>
+        <ul id="locale-picker">
+            {{#__locales__}}
+            <li>
+                {{#if current}}
+                <a href="#">{{name}}</a>
+                {{else}}
+                <!--suppress HtmlUnknownTarget -->
+                <a href="{{code}}">{{name}}</a>
+                {{/if}}
+            </li>
+            {{/__locales__}}
+        </ul>
+        <a class="close" href="#"></a>
+    </div>
+</header>

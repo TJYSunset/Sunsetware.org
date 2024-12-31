@@ -1,0 +1,219 @@
+@use "theme";
+
+#navigation {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: var(--navigation-height);
+    padding: 0
+        calc(
+            max(var(--navigation-height), (100% - var(--destop-max-width)) / 2)
+        );
+    background: var(--color-surface-container);
+    color: var(--color-on-surface);
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 200%;
+        height: 2px;
+        top: calc(var(--navigation-height) - 2px);
+        left: -100%;
+        background: var(--color-outline-variant);
+
+        @media (max-width: theme.$mobile-threshold) {
+            top: calc(128px - 2px);
+        }
+    }
+
+    @media (max-width: theme.$mobile-threshold) {
+        height: calc(var(--navigation-height) * 2);
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-right: 16px;
+        @include theme.title-large;
+        user-select: none;
+
+        @media (max-width: theme.$mobile-threshold) {
+            flex-grow: 1;
+            height: var(--navigation-height);
+            margin: 0 16px;
+        }
+
+        img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    .navigation {
+        display: inline-flex;
+        flex-grow: 1;
+        overflow-x: scroll;
+        scrollbar-width: none;
+
+        @media (max-width: theme.$mobile-threshold) {
+            order: 999;
+            flex-basis: 100%;
+        }
+
+        ul {
+            flex-grow: 1;
+            display: inline-flex;
+            align-items: center;
+            align-content: stretch;
+            margin: 0;
+            padding: 0;
+            @include theme.title-medium;
+
+            li {
+                display: inline-flex;
+                @media (max-width: theme.$mobile-threshold) {
+                    flex-basis: 100%;
+                }
+
+                a {
+                    display: inline-flex;
+                    position: relative;
+                    align-items: center;
+                    justify-content: center;
+                    height: var(--navigation-height);
+                    padding: 0 16px;
+                    text-decoration: none;
+                    text-wrap: nowrap;
+                    width: 100%;
+
+                    &.active {
+                        color: var(--color-primary);
+
+                        & > * {
+                            display: inline-flex;
+                            position: relative;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100%;
+
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                left: 2px;
+                                width: calc(100% - 2px * 2);
+                                height: 3px;
+                                top: calc(var(--navigation-height) - 3px);
+                                background: var(--color-primary);
+                                border-radius: 3px 3px 0 0;
+                            }
+                        }
+
+                        &:hover:after,
+                        &:active:after {
+                            @include theme.hover-overlay(var(--color-primary));
+                        }
+                    }
+
+                    &.inactive {
+                        color: var(--color-on-surface-variant);
+
+                        &:hover:after,
+                        &:active:after {
+                            @include theme.hover-overlay(
+                                var(--color-on-surface-variant)
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .locales {
+        display: block;
+        position: relative;
+        padding: 0;
+        @include theme.title-medium;
+
+        @media (max-width: theme.$mobile-threshold) {
+            margin: 12px 16px;
+        }
+
+        @mixin button-hover-overlay {
+            @include theme.hover-overlay(var(--color-on-surface-variant));
+            top: calc((24px - 40px) / 2);
+            left: calc((24px - 40px) / 2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .open {
+            display: block;
+            width: 24px;
+            height: 24px;
+            color: var(--color-on-surface-variant);
+
+            &:hover:after,
+            &:active:after {
+                @include button-hover-overlay;
+            }
+        }
+
+        ul {
+            display: none;
+
+            &:target {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                z-index: 999;
+                right: 0;
+                padding: 8px 0;
+                background: var(--color-surface-container);
+                border-radius: 4px;
+                @include theme.elevation-2;
+            }
+
+            li {
+                display: block;
+
+                a {
+                    display: block;
+                    position: relative;
+                    height: 48px;
+                    padding: 0 12px;
+                    @include theme.label-large;
+                    line-height: 48px;
+                    text-decoration: none;
+                    color: var(--color-on-surface);
+
+                    &:hover:after,
+                    &:active:after {
+                        @include theme.hover-overlay(
+                            var(--color-on-surface-variant)
+                        );
+                    }
+                }
+            }
+        }
+
+        .close {
+            display: none;
+        }
+
+        ul:target ~ .close {
+            @include button-hover-overlay;
+        }
+    }
+}
+
+#main {
+    display: flex;
+    flex-grow: 1;
+    padding: var(--main-padding-y) var(--main-padding-x);
+}
