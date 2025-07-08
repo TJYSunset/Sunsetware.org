@@ -13,11 +13,7 @@ app.UseStaticFiles(
         HttpsCompression = HttpsCompressionMode.Compress,
         OnPrepareResponse = (context) =>
         {
-            var fileNameSegments = context
-                .Context.Request.Path.Value?.Split('/')
-                .LastOrDefault()
-                ?.Split('.');
-            var immutable = fileNameSegments != null && fileNameSegments.LastOrDefault() != "html";
+            var immutable = context.Context.Request.Path.Value?.EndsWith(".html") == false;
             var headers = context.Context.Response.GetTypedHeaders();
             headers.CacheControl = new CacheControlHeaderValue
             {

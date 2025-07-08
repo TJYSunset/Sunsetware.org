@@ -1,11 +1,9 @@
 // noinspection JSJQueryEfficiency
 
 import asciidoctor from "asciidoctor";
-// @ts-expect-error what the fuck
 import * as cheerio from "cheerio";
-// @ts-expect-error ...
 import { toMerged } from "es-toolkit";
-import * as Handlebars from "handlebars";
+import Handlebars from "handlebars/lib/handlebars.js";
 import * as fs from "node:fs";
 import { Dirent } from "node:fs";
 import * as path from "node:path";
@@ -24,22 +22,22 @@ Handlebars.registerHelper(
     function (operand_1, operator, operand_2, options) {
         // noinspection JSUnusedGlobalSymbols
         const operators = {
-                eq: function (l: unknown, r: unknown) {
+                eq: function (l: unknown, r: unknown): boolean {
                     return l === r;
                 },
-                ne: function (l: unknown, r: unknown) {
+                ne: function (l: unknown, r: unknown): boolean {
                     return l !== r;
                 },
-                lt: function (l: unknown, r: unknown) {
+                lt: function (l: unknown, r: unknown): boolean {
                     return Number(l) < Number(r);
                 },
-                gt: function (l: unknown, r: unknown) {
+                gt: function (l: unknown, r: unknown): boolean {
                     return Number(l) > Number(r);
                 },
-                and: function (l: unknown, r: unknown) {
+                and: function (l: unknown, r: unknown): unknown {
                     return l && r;
                 },
-                or: function (l: unknown, r: unknown) {
+                or: function (l: unknown, r: unknown): unknown {
                     return l || r;
                 },
             },
@@ -50,7 +48,7 @@ Handlebars.registerHelper(
     },
 );
 
-function toPath(dirent: Dirent) {
+function toPath(dirent: Dirent): string {
     return path.join(dirent.parentPath, dirent.name);
 }
 
@@ -108,7 +106,7 @@ function buildHandlebars(
     file: Dirent,
     locale: string | null,
     variables: object,
-) {
+): void {
     console.log(`${locale ?? "invariant"}: ${toPath(file)}`);
     const fileOutputDirectory = path.join(outputDirectory, file.parentPath);
     const html = fs.readFileSync(toPath(file), {

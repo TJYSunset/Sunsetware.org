@@ -24,7 +24,7 @@
             max-height: calc(100vh - var(--main-padding-y) * 2);
             align-self: start;
             grid-area: 1 / 1;
-            overflow-y: scroll;
+            overflow-y: auto;
             background: var(--color-surface-container);
             border-radius: 20px;
 
@@ -59,6 +59,16 @@
 
         .content {
             grid-area: 1 / 2;
+
+            .sect1,
+            .sect2,
+            .sect3,
+            .sect4,
+            .sect5,
+            .sect6,
+            .paragraph {
+                margin-bottom: 32px;
+            }
 
             h1 {
                 font-weight: bold;

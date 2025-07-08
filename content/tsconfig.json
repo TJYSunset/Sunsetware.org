@@ -1,6 +1,14 @@
 {
     "compilerOptions": {
-        "target": "ESNext",
-        "moduleResolution": "NodeNext"
+        "target": "ES2024",
+        "moduleResolution": "NodeNext",
+        "isolatedModules": true,
+        "jsx": "react",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "moduleDetection": "force",
+        "module": "Preserve",
+        "allowJs": true,
+        "esModuleInterop": true
     }
 }

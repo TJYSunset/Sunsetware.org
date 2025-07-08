@@ -1,4 +1,5 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
+@import "/node_modules/@fontsource/noto-color-emoji/index.css";
 @import "/node_modules/@fontsource-variable/jetbrains-mono/index.css";
 @import "/node_modules/@fontsource-variable/material-symbols-outlined/opsz.css";
 @import "/node_modules/@fontsource-variable/noto-sans-sc/index.css";
@@ -55,6 +56,44 @@ $mobile-threshold: 800px;
     @media (max-width: $mobile-threshold) {
         --main-padding-x: var(--main-padding-y);
     }
+}
+
+.light-theme:root {
+    --color-primary: #605790;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #e6deff;
+    --color-on-primary-container: #1c1149;
+    --color-secondary: #605c71;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #e6dff9;
+    --color-on-secondary-container: #1c192b;
+    --color-tertiary: #7c5264;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffd8e6;
+    --color-on-tertiary-container: #301120;
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #410002;
+    --color-background: #fdf8ff;
+    --color-on-background: #1c1b20;
+    --color-surface: #fdf8ff;
+    --color-on-surface: #1c1b20;
+    --color-surface-variant: #e6e0ec;
+    --color-on-surface-variant: #48454e;
+    --color-outline: #79757f;
+    --color-outline-variant: #c9c5d0;
+    --color-scrim: #000000;
+    --color-inverse-surface: #312f36;
+    --color-inverse-on-surface: #f4eff7;
+    --color-inverse-primary: #c9beff;
+    --color-surface-dim: #ddd8e0;
+    --color-surface-bright: #fdf8ff;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f7f2fa;
+    --color-surface-container: #f1ecf4;
+    --color-surface-container-high: #ebe6ee;
+    --color-surface-container-highest: #e5e1e9;
 }
 
 @mixin label-small {
@@ -157,7 +196,13 @@ $mobile-threshold: 800px;
     width: 100%;
     z-index: 999;
     background: $color;
+    border-radius: inherit;
     opacity: 0.08;
+}
+
+@mixin press-overlay($color) {
+    @include hover-overlay($color);
+    opacity: 0.12;
 }
 
 @mixin elevation-2 {
@@ -174,7 +219,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "JetBrains Mono Variable", "Noto Sans SC Variable", sans-serif;
+    font-family: "JetBrains Mono Variable", "Noto Sans SC Variable",
+        "Noto Color Emoji", monospace;
     background: var(--color-background);
     color: var(--color-on-background);
     @include body-medium;
@@ -182,6 +228,8 @@ body {
 }
 
 a {
+    text-decoration: underline;
+
     &,
     &:link,
     &:visited {
@@ -199,15 +247,31 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+ul,
+ol {
     margin: 0 0 32px 0;
+    padding: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 p,
 ul,
 ol {
-    margin: 0 0 32px 0;
     @include body-medium;
+}
+
+ul,
+ol {
+    padding-inline-start: 2.4em;
+}
+
+ul li {
+    list-style-type: "•  ";
 }
 
 h1 {
@@ -258,4 +322,24 @@ kbd {
     text-decoration: none;
     user-select: none;
     vertical-align: -3px;
+}
+
+* {
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background: var(--color-surface-container);
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: var(--color-tertiary);
+    }
 }

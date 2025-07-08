@@ -1,5 +1,6 @@
 {
     "name": "sunsetware",
+    "type": "module",
     "private": true,
     "source": [
         "localized/**/index.html",
@@ -11,7 +12,8 @@
         "prestart": "tsx prebuild.ts",
         "start": "parcel",
         "prebuild": "tsx prebuild.ts",
-        "build": "rimraf .parcel-cache && rimraf dist && parcel build"
+        "build": "rimraf .parcel-cache && rimraf dist && parcel build",
+        "test": "tsx test.ts"
     },
     "browserslist": [
         "defaults"
@@ -22,25 +24,38 @@
         }
     },
     "dependencies": {
-        "@eslint/js": "^9.29.0",
+        "@ariakit/react": "^0.4.17",
+        "@eslint/js": "^9.30.1",
         "@fontsource-variable/jetbrains-mono": "^5.2.6",
-        "@fontsource-variable/material-symbols-outlined": "^5.2.14",
+        "@fontsource-variable/material-symbols-outlined": "^5.2.16",
         "@fontsource-variable/noto-sans-sc": "^5.2.6",
+        "@fontsource/noto-color-emoji": "^5.2.8",
+        "@messageformat/core": "^3.4.0",
+        "@messageformat/parser": "^5.1.1",
         "@parcel/config-default": "^2.15.4",
         "@parcel/transformer-sass": "^2.15.4",
-        "@types/node": "^22.15.32",
+        "@types/node": "^22.16.0",
+        "@types/react": "^19.1.8",
+        "@types/react-dom": "^19.1.6",
         "asciidoctor": "^3.0.4",
         "cheerio": "^1.1.0",
-        "es-toolkit": "^1.39.4",
-        "eslint": "^9.29.0",
+        "es-toolkit": "^1.39.6",
+        "eslint": "^9.30.1",
+        "fast-xml-parser": "^4.5.3",
+        "flexsearch": "^0.8.205",
         "globals": "^15.15.0",
         "handlebars": "^4.7.8",
         "modern-normalize": "^3.0.1",
         "parcel": "^2.15.4",
         "prettier": "3.4.2",
         "prettier-plugin-organize-imports": "^4.1.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "react-hotkeys-hook": "^5.1.0",
         "rimraf": "^6.0.1",
+        "superjson": "^2.2.2",
         "tsx": "^4.20.3",
-        "typescript-eslint": "^8.35.0"
+        "typescript-eslint": "^8.36.0",
+        "zustand": "^5.0.6"
     }
 }
