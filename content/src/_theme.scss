@@ -1,5 +1,4 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
-@import "/node_modules/@fontsource/noto-color-emoji/index.css";
 @import "/node_modules/@fontsource-variable/jetbrains-mono/index.css";
 @import "/node_modules/@fontsource-variable/material-symbols-outlined/opsz.css";
 @import "/node_modules/@fontsource-variable/noto-sans-sc/index.css";
@@ -219,8 +218,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "JetBrains Mono Variable", "Noto Sans SC Variable",
-        "Noto Color Emoji", monospace;
+    font-family: "JetBrains Mono Variable", "Noto Sans SC Variable", monospace;
     background: var(--color-background);
     color: var(--color-on-background);
     @include body-medium;

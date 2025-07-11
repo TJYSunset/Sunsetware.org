@@ -6,7 +6,8 @@
     height: 100vh;
     padding: 16px;
 
-    font-family: "JetBrains Mono Variable", "Noto Color Emoji", monospace;
+    font-family: "JetBrains Mono Variable", "Segoe UI Emoji",
+        "Noto Color Emoji", "Apple Color Emoji", monospace;
     word-break: break-word;
     white-space: preserve;
 }
@@ -215,7 +216,8 @@ textarea {
     color: var(--color-on-surface);
     background: var(--color-surface-container-highest);
     border-radius: 16px;
-    box-shadow: 0 1px 3px color-mix(in oklab, transparent, var(--color-scrim) 32%);
+    box-shadow: 0 1px 3px
+        color-mix(in oklab, transparent, var(--color-scrim) 32%);
 
     overflow: auto;
     overscroll-behavior: contain;
@@ -224,7 +226,8 @@ textarea {
         font-weight: bold;
     }
 
-    & > button, & > .buttons {
+    & > button,
+    & > .buttons {
         flex-shrink: 0;
         align-self: flex-end;
     }

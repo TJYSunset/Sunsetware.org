@@ -29,7 +29,6 @@
         "@fontsource-variable/jetbrains-mono": "^5.2.6",
         "@fontsource-variable/material-symbols-outlined": "^5.2.16",
         "@fontsource-variable/noto-sans-sc": "^5.2.6",
-        "@fontsource/noto-color-emoji": "^5.2.8",
         "@messageformat/core": "^3.4.0",
         "@messageformat/parser": "^5.1.1",
         "@parcel/config-default": "^2.15.4",

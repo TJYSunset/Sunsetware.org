@@ -23,9 +23,6 @@ importers:
       '@fontsource-variable/noto-sans-sc':
         specifier: ^5.2.6
         version: 5.2.6
-      '@fontsource/noto-color-emoji':
-        specifier: ^5.2.8
-        version: 5.2.8
       '@messageformat/core':
         specifier: ^3.4.0
         version: 3.4.0
@@ -372,9 +369,6 @@ packages:
 
   '@fontsource-variable/noto-sans-sc@5.2.6':
     resolution: {integrity: sha512-PbDg8YG05A/8mFiII8lqK0Nvn5gDbCcvDctwNQjIFaBptLFNXDofmnocvki+A4ss3VxdYCyG4xznauMPQi+/RA==}
-
-  '@fontsource/noto-color-emoji@5.2.8':
-    resolution: {integrity: sha512-wukaUPAX/ftoeCP8fcbLf1BhQF4dzUdZxUOroHiMhQg4F8CIONmfCs3p+sBq5Xqp84nCOtH0FgIdadLR3wu0EQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2373,8 +2367,6 @@ snapshots:
   '@fontsource-variable/material-symbols-outlined@5.2.16': {}
 
   '@fontsource-variable/noto-sans-sc@5.2.6': {}
-
-  '@fontsource/noto-color-emoji@5.2.8': {}
 
   '@humanfs/core@0.19.1': {}
 
