@@ -162,14 +162,11 @@ export function unescapeAndroid(string: string): string {
 export function escapeAndroid(string: string): string {
     const quoted =
         string.replaceAll(/[\r\n\t]/g, "").match(/\s\s|^\s|\s$/) !== null;
-    string = string
-        .replaceAll(/(^@|^\?|"|\\)/g, "\\$1")
+    string = string.replaceAll(/(^@|^\?|"|\\)/g, "\\$1");
     if (!quoted) {
         string = string.replaceAll("'", "\\'");
     }
-    string = string
-        .replaceAll(/\r\n|\r|\n/g, "\\n")
-        .replaceAll("\t", "\\t");
+    string = string.replaceAll(/\r\n|\r|\n/g, "\\n").replaceAll("\t", "\\t");
     return quoted ? `"${string}"` : string;
 }
 

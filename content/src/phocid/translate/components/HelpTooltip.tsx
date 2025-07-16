@@ -11,10 +11,11 @@ export function HelpTooltip({
 }): ReactNode {
     return (
         <TooltipProvider>
-            <TooltipAnchor style={{ display: "inline-block" }} tabIndex={tabindex}>
-                <div className="icon">
-                    help
-                </div>
+            <TooltipAnchor
+                style={{ display: "inline-block" }}
+                tabIndex={tabindex}
+            >
+                <div className="icon">help</div>
             </TooltipAnchor>
             <Tooltip className="tooltip-popover">{children}</Tooltip>
         </TooltipProvider>
