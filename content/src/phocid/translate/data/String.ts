@@ -393,8 +393,8 @@ export function checkTranslation(
                                 }
                                 if (sourceHasNumber && !translationHasNumber) {
                                     results.push({
-                                        severity: "error",
-                                        message: `Plural argument {${key}} is missing the number ("#")`,
+                                        severity: "warning",
+                                        message: `Plural argument {${key}} might be missing the number ("#")`,
                                     });
                                 }
                                 if (!sourceHasNumber && translationHasNumber) {
